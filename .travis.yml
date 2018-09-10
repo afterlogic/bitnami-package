@@ -7,15 +7,16 @@ services:
 - mysql
 install:
 - mysql -e 'CREATE DATABASE aurora;'
+- git clone ${PRODUCT_REPOSITORY_URL} ./product
 - php ./add.php
-- composer install
+- cd ./product | composer install
 - npm install -g newman
 script:
-- php ./travis.php
-- chmod +x ./travis.sh
-- ./travis.sh -t build
+- cd ./product | php ./travis.php
+- cd ./product | chmod +x ./travis.sh
+- cd ./product | ./travis.sh -t build
 after_success: 
-- ./travis.sh -t upload
+- cd ./product | ./travis.sh -t upload
 env:
   global:
-  - PRODUCT_NAME=webmail-pro
+  - PRODUCT_NAME=webmail-pro-bitnami
