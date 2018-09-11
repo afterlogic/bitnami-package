@@ -89,4 +89,4 @@ $sVersion = $aModules['afterlogic/aurora-framework'];
 $aModules['afterlogic/aurora-module-licensing-trial'] = $sVersion;
 $oModulesConfig->require = $aModules;
 
-file_put_contents('./product/modules1.json', json_format(json_encode($oModulesConfig, JSON_UNESCAPED_SLASHES)));
+file_put_contents('./product/modules.json', json_format(json_encode($oModulesConfig, JSON_UNESCAPED_SLASHES)));
